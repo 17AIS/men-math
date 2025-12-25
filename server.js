@@ -10,9 +10,7 @@ const __dirname = path.dirname(__filename)
 
 app.use(express.static('public'))
 
-// app.get('/', (res) => {
-//     res.sendFile(path.join(__dirname, 'public', ))
-// })
+
 
 app.listen(PORT, () => {
     console.log(`server is running at http://localhost:${PORT}/`)

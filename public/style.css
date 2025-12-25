@@ -1,0 +1,27 @@
+.menu-backgroud {
+    height: 50vh;
+    width: 40vw;
+    background-color: rgb(195, 195, 195);
+    margin: 0px auto;
+    /* padding: 0px; */
+}
+
+.range {
+    height: 2vh;
+    width: 3vw;
+    background-color: rgb(217, 217, 217);
+    margin: auto;
+    /* position: relative; */
+    text-align: center;
+    
+    
+}
+
+.range::background_num {
+    color:brown;
+}
+
+.startButton {
+    height: 3vh;
+    width: 6vw;
+}

@@ -2,9 +2,12 @@
 
 <head>
 
+
+
+
     <title style="color: aqua;">men math</title>
     <link href="style.css" rel="stylesheet">
-    <script src="button.js"></script>
+    <script src="button.js" defer></script>
 
 
 </head>
@@ -15,68 +18,62 @@
         <div style="font-size: 16px;">
                     <div style="-webkit-text-fill-color: rgb(195, 195, 195) ;">a</div>
         </div>
+
+
         <div>
-            <input type="checkbox" data-user-id="additioOption">Addition: 
+            <input type="checkbox" id="additionOption" checked>Addition: 
             <p style="text-align: center;">
                 Range (
-                <input class="range"   data-user-id="additionMin1" value="1">
+                <input class="range" type="number"  id="additionMin1" value="1" >
                 -
-                <input class="range"   data-user-id="additionMax1" value="100">
+                <input class="range" type="number"  id="additionMax1" value="100">
                 ) + (
-                <input class="range"   data-user-id="additionMin2" value="1">
+                <input class="range" type="number"  id="additionMin2" value="1">
                 -
-                <input class="range"   data-user-id="additionMax2" value="100">
+                <input class="range" type="number"  id="additionMax2" value="100">
                 )
             </p>
         </div>
 
         <div>
-            <input type="checkbox" data-user-id="subtractionOption">Subtraction: 
+            <input type="checkbox" id="subtractionOption" checked>Subtraction:
             <p style="text-align: center;">
                 Range (
-                <input class="range"   data-user-id="subtractionMin1" value="1">
+                <input class="range" type="number"  id="subtractionMin1" value="1">
                 -
-                <input class="range"   data-user-id="subtractionMax1" value="100">
+                <input class="range" type="number"  id="subtractionMax1" value="100">
                 ) - (
-                <input class="range"   data-user-id="subtractionMin2" value="1">
+                <input class="range" type="number"  id="subtractionMin2" value="1">
                 -
-                <input class="range"   data-user-id="subtractionMax2" value="100">
+                <input class="range" type="number"  id="subtractionMax2" value="100">
             )
             </p>
         </div>
 
         <div>
-            <input type="checkbox" data-user-id="multiplicationOption">Multiplication: 
+            <input type="checkbox" id="multiplicationOption" checked>Multiplication: 
             <p style="text-align: center;">
                 Range (
-                <input class="range"   data-user-id="multiplicationMin1" value="1">
+                <input class="range" type="number"  id="multiplicationMin1" value="1">
                 -
-                <input class="range"   data-user-id="multiplicationMax1" value="100">
+                <input class="range" type="number"  id="multiplicationMax1" value="10">
                 ) × (
-                <input class="range"   data-user-id="multiplicationMin2" value="1">
+                <input class="range" type="number"  id="multiplicationMin2" value="1">
                 -
-                <input class="range"   data-user-id="multiplicationMax2" value="100">
+                <input class="range" type="number"  id="multiplicationMax2" value="100">
                 )
             </p>
         </div>
 
         <div>
-            <input type="checkbox" data-user-id="divisonOption">Divison: 
+            <input type="checkbox" id="divisionOption" checked>Division: 
             <p style="text-align: center;">
-            Range (
-            <input class="range"   data-user-id="divisonMin1" value="1">
-            -
-            <input class="range"   data-user-id="divisonMax1" value="100">
-            ) ÷ (
-            <input class="range"   data-user-id="divisonMin2" value="1">
-            -
-            <input class="range"   data-user-id="divisonMax2" value="100">
-            )
+            Range ( opposite of multiplication )
             </p>
         </div>
         
         <p>
-            <select data-user-id="timing">
+            <select id="timing">
                 <option value="30">30 seconds</option>
                 <option value="60">60 seconds</option>
                 <option value="90">90 seconds</option>

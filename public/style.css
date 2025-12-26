@@ -1,3 +1,16 @@
+
+/* makes it so that you do not have the arrow wheel next to the numbers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
 .menu-backgroud {
     height: 50vh;
     width: 40vw;

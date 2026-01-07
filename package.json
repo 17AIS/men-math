@@ -1,0 +1,24 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "A program like zetmac, but trying to build it for both web and android devices (by creating an apk).",
+  "homepage": "https://github.com/17AIS/men-math#readme",
+  "bugs": {
+    "url": "https://github.com/17AIS/men-math/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/17AIS/men-math.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "node": "^24.12.0"
+  }
+}

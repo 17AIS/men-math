@@ -16,6 +16,10 @@ function operationBool(id) {
 }
 
 
+function dummy() {
+    return 'jearld'
+}
+
 function check() {
     error = ""
     flag = false
@@ -90,23 +94,53 @@ function check() {
     }
 
     if (flag) {
-        alert(error)
+        throw new error(error);
+        return 
     } 
-    let date = new Date();
 
-    let before = date.getMilliseconds()
+    // const dataToPass = {
+    //     addition: [addOption, addMin1, addMax1, addMin2, addMax2],
+    //     subtraction: [subOption, subMin1, subMax1, subMin2, subMax2],
+    //     multiplication: [mulOption, mulMin1, mulMax1, mulMin2, mulMax2],
+    //     division: divOption,
+    //     timer: timer
+    //   };
+    //   // Store data in localStorage as a JSON string
+    //   localStorage.setItem("userData", JSON.stringify(dataToPass));
+  
+
+    // window.location.href = "game.html";
+
+    // return [addOption, addMin1, addMax1, addMin2, addMax2,
+    //         subOption, subMin1, subMax1, subMin2, subMax2,
+    //         mulOption, mulMin1, mulMax1, mulMin2, mulMax2,
+    //         divOption, timer]
+
+
+    // let date = new Date();
+
+    // let before = date.getMilliseconds()
 
     let arr = createQuestions(addMin1, addMax1, addMin2, addMax2, addOption,
                     subMin1, subMax1, subMin2, subMax2, subOption,
                     mulMin1, mulMax1, mulMin2, mulMax2, mulOption, divOption, timer);
 
-    let after = new Date();
-    let something = after.getMilliseconds();
-    console.log(arr)
+    // let after = new Date();
+    // let something = after.getMilliseconds();
+    // let other = after.getSeconds();
 
-    alert(before + '\n' + something)
-    
+    const dataToPass = {
+        questions: arr,
+        time: timer
+      };
+
+    localStorage.setItem("userData", JSON.stringify(dataToPass));
+  
+
+    window.location.href = "game.html";
+
 }
+
 
 
 function createQuestions(addMin1, addMax1, addMin2, addMax2, addOption,
@@ -157,7 +191,7 @@ function createQuestions(addMin1, addMax1, addMin2, addMax2, addOption,
 function questionAdd(addMin1, addMax1, addMin2, addMax2) {
     let first = Math.floor(Math.random() * (addMax1 - addMin1 + 1)) + addMin1
     let second = Math.floor(Math.random() * (addMax2 - addMin2 + 1)) + addMin2
-    let str = first + ' + ' + second
+    let str = first + ' + ' + second + ' = '
     let ans = first + second
     let ret = [str, ans]
     return ret
@@ -167,7 +201,7 @@ function questionAdd(addMin1, addMax1, addMin2, addMax2) {
 function questionSub(subMin1, subMax1, subMin2, subMax2) {
     let first = Math.floor(Math.random() * (subMax1 - subMin1 + 1)) + subMin1
     let second = Math.floor(Math.random() * (subMax2 - subMin2 + 1)) + subMin2
-    let str = Math.max(first, second) + ' - ' + Math.min(first, second)
+    let str = Math.max(first, second) + ' - ' + Math.min(first, second) + ' = '
     let ans = Math.max(first, second) - Math.min(first, second)
     let ret = [str, ans]
     return ret
@@ -176,7 +210,7 @@ function questionSub(subMin1, subMax1, subMin2, subMax2) {
 function questionMul(mulMin1, mulMax1, mulMin2, mulMax2) {
     let first = Math.floor(Math.random() * (mulMax1 - mulMin1 + 1)) + mulMin1
     let second = Math.floor(Math.random() * (mulMax2 - mulMin2 + 1)) + mulMin2
-    let str = first + ' × ' + second
+    let str = first + ' × ' + second + ' = '
     let ans = first * second
     let ret = [str, ans]
     return ret
@@ -186,7 +220,7 @@ function questionDiv(divMin1, divMax1, divMin2, divMax2) {
     let first = Math.ceil(Math.random() * (divMax1 - divMin1)) + divMin1
     let second = Math.ceil(Math.random() * (divMax2 - divMin2)) + divMin2
     let ans = first * second 
-    let str = ans + ' / ' + first
+    let str = ans + ' / ' + first + ' = '
     let ret = [str, second]
     return ret
 }

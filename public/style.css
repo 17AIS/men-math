@@ -37,4 +37,48 @@ input[type=number] {
 .startButton {
     height: 3vh;
     width: 6vw;
+    border-radius: 8px;
+    ;
+}
+
+
+.board {
+    top: 5vh;
+    height: 25vh;
+    background-color: grey;
+
+}
+
+.question {
+    display: flex;
+    top: 5vh;
+    height: 20vh;
+    line-height: 20vh;
+    background-color: grey;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 10vh;
+    font: Serif;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+
+}
+
+.filler {
+    height: 40vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    font-family: monospace;
+}
+
+.answer {
+    height: 16vh;
+    width: 20%;
+    font-size: 10vh;
+    font-family: monospace;
+    align-items: center;
+
 }

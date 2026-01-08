@@ -66,7 +66,7 @@
             </p>
         </div>
         
-        <p>
+        <p class="buttons">
             <select id="timing">
                 <option value="30">30 seconds</option>
                 <option value="60">60 seconds</option>
@@ -79,9 +79,29 @@
                 <option value="270">270 seconds</option>
                 <option value="300">300 seconds</option>
             </select>
+            <button id="startButton" syle="margin: right;" Onclick="check()">start</button>
+            <button Onclick="reset()"> reset leaderboard </button>
         </p>
-        <button id="startButton" class="startButton" syle="margin: right;" Onclick="check()">start</button>
+        
     </div>
+
+    <pre id="leaderboard"></pre>
+
+    <script>
+        const rawData = localStorage.getItem('scores');
+        let data = JSON.parse(rawData)
+        let scores = data.scores;
+
+        if (scores.length != 0) {
+            let text = "Scores:  \n"
+            for (let i = 0; i < scores.length; i++) {
+                text += `${i+1}. ${scores[i]} \n`
+            }
+            document.getElementById("leaderboard").textContent = text
+        }
+
+
+    </script>
     
 
 </body>

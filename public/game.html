@@ -17,54 +17,65 @@
 <div class="question">
 
     <pre id="question" style="font-family: monospace;"></pre>
-
     <input id="answer" class="answer" type="number" style="font-family: monospace;" autofocus>
+
+    <div id="link"></div>
+
+    <a id="try" href=""></a>
+
+    <a id="main" href=""></a>
 </div>
 <script>
 
   const storedData = localStorage.getItem("userData");
   if (storedData) {
-    
-      const liveInput = document.getElementById('answer');
-      const userData = JSON.parse(storedData);
-      const questions = userData.questions
-      let distance = (userData.time)
-      
-      let i = 0 
-      document.getElementById("countdown").textContent = `time: ${distance}`
-      document.getElementById("score").textContent = `score: ${i}`
+    const liveInput = document.getElementById('answer');
+    const userData = JSON.parse(storedData);
+    const questions = userData.questions
+    let distance = (userData.time)
+    distance = 20  
+    let i = 0 
+    document.getElementById("countdown").textContent = `time: ${distance}`
+    document.getElementById("score").textContent = `score: ${i}`
 
-      distance -= 1
-      document.getElementById("question").textContent = `${questions[i][0]}`
+    distance -= 1
+    document.getElementById("question").textContent = `${questions[i][0]}`
 
-      let time = setInterval(function() {
+    let time = setInterval(function() {
         
-        document.getElementById("countdown").textContent = `time: ${distance}`
-        distance -= 1
+    document.getElementById("countdown").textContent = `time: ${distance}`
+    distance -= 1
 
-        if (distance < 0){
-            clearInterval(time)
-            document.getElementById("countdown").textContent = ""
-            document.getElementById("score").textContent = ""
-            document.getElementById("question").textContent = `score: ${i}`
-            document.getElementById("answer").style.display = 'None';
+    if (distance < 0){
+        clearInterval(time)
+        let url = window.location.href;
+        let old = userData.original;
+        document.getElementById("countdown").textContent = ""
+        document.getElementById("score").textContent = ""
+        document.getElementById("question").style.display = `None`
+        document.getElementById("answer").style.display = 'None';
+        document.getElementById("link").textContent = `score: ${i}`
+        document.getElementById("main").href = `${old}`
+        document.getElementById("try").href = `${url}`
+        document.getElementById("main").textContent = 'main menu'
+        document.getElementById("try").textContent = 'try again'
 
-
-        }
-      }, 1000)
+        leaderboard(i)
+    }
+    }, 1000)
       
     
     
     liveInput.addEventListener('input', (e) => {
-            let answer = Number(event.target.value); 
-            
-            if (answer === questions[i][1]) {
-                i += 1
-                document.getElementById("question").textContent = `${questions[i][0]}`
-                document.getElementById("answer").value = ""
+        let answer = Number(event.target.value); 
+        
+        if (answer === questions[i][1]) {
+            i += 1
+            document.getElementById("question").textContent = `${questions[i][0]}`
+            document.getElementById("answer").value = ""
 
-                document.getElementById("score").textContent = `score: ${i}`
-            } 
+            document.getElementById("score").textContent = `score: ${i}`
+        } 
     
         });
   }

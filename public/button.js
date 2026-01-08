@@ -131,17 +131,75 @@ function check() {
 
     const dataToPass = {
         questions: arr,
-        time: timer
+        time: timer,
+        original: window.location.href
       };
+
+
+    const data = localStorage.getItem('scores');
+    console.log(data)
+    const scores = {
+        scores: [],
+        params: []
+    }
+    if (!data) {
+        localStorage.setItem("scores", JSON.stringify(scores));
+
+        x = JSON.stringify(scores)
+
+    }
 
     localStorage.setItem("userData", JSON.stringify(dataToPass));
   
 
     window.location.href = "game.html";
 
+    
+}
+function reset() {
+    localStorage.removeItem('scores');
+    window.location.href = window.location.href
+
 }
 
+function leaderboard(score) {
+    const rawData = localStorage.getItem("scores");
+    let data = JSON.parse(rawData)
+    let scores = data.scores;
 
+    console.log(data)
+    if (score === 0) {
+        return 
+    }
+    if (scores.length === 0) {
+        scores.push(score)
+    } else if (scores.length < 10) {
+        for (let i = 0; i < scores.length; i++) {
+            if (score > Number(scores[i])) {
+                let temp = scores[i]
+                scores[i] = score
+                score = temp;
+            }
+        }
+        console.log(scores)
+        scores.push(score)
+        
+        console.log(scores)
+    } else if (scores.length === 10) {
+        if (score > Number(scores[9])) {
+            for (let i = 0; i < scores.length; i++) {
+                if (score >= Number(scores[i])) {
+                    let temp = scores[i]
+                    scores[i] = score
+                    score = temp;
+                }
+            }
+        }
+    }
+    data.scores = scores
+    console.log(data)
+    localStorage.setItem('scores', JSON.stringify(data));
+}
 
 function createQuestions(addMin1, addMax1, addMin2, addMax2, addOption,
                          subMin1, subMax1, subMin2, subMax2, subOption,

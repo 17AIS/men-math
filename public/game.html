@@ -33,13 +33,9 @@
     const userData = JSON.parse(storedData);
     const questions = userData.questions
     let distance = (userData.time)
-    distance = 20  
     let i = 0 
-    document.getElementById("countdown").textContent = `time: ${distance}`
-    document.getElementById("score").textContent = `score: ${i}`
 
-    distance -= 1
-    document.getElementById("question").textContent = `${questions[i][0]}`
+    distance = init(distance, i, questions[0][0])
 
     let time = setInterval(function() {
         
@@ -50,31 +46,17 @@
         clearInterval(time)
         let url = window.location.href;
         let old = userData.original;
-        document.getElementById("countdown").textContent = ""
-        document.getElementById("score").textContent = ""
-        document.getElementById("question").style.display = `None`
-        document.getElementById("answer").style.display = 'None';
-        document.getElementById("link").textContent = `score: ${i}`
-        document.getElementById("main").href = `${old}`
-        document.getElementById("try").href = `${url}`
-        document.getElementById("main").textContent = 'main menu'
-        document.getElementById("try").textContent = 'try again'
 
-        leaderboard(i)
+        end(url, old, i)
     }
     }, 1000)
       
-    
-    
     liveInput.addEventListener('input', (e) => {
         let answer = Number(event.target.value); 
         
         if (answer === questions[i][1]) {
             i += 1
-            document.getElementById("question").textContent = `${questions[i][0]}`
-            document.getElementById("answer").value = ""
-
-            document.getElementById("score").textContent = `score: ${i}`
+            changeQuestion(questions[i][0], i)
         } 
     
         });

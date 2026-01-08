@@ -93,14 +93,12 @@
         let scores = data.scores;
 
         if (scores.length != 0) {
-            let text = "Scores:  \n"
+            let text = "Top scores:  \n"
             for (let i = 0; i < scores.length; i++) {
                 text += `${i+1}. ${scores[i]} \n`
             }
             document.getElementById("leaderboard").textContent = text
         }
-
-
     </script>
     
 

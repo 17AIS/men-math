@@ -94,7 +94,7 @@ function check() {
     }
 
     if (flag) {
-        throw new error(error);
+        alert(error)
         return 
     } 
 
@@ -109,7 +109,6 @@ function check() {
     //   localStorage.setItem("userData", JSON.stringify(dataToPass));
   
 
-    // window.location.href = "game.html";
 
     // return [addOption, addMin1, addMax1, addMin2, addMax2,
     //         subOption, subMin1, subMax1, subMin2, subMax2,
@@ -150,16 +149,44 @@ function check() {
     }
 
     localStorage.setItem("userData", JSON.stringify(dataToPass));
-  
 
     window.location.href = "game.html";
-
-    
 }
+
+function init(distance, i, question) {
+    document.getElementById("countdown").textContent = `time: ${distance}`
+    document.getElementById("score").textContent = `score: ${i}`
+    document.getElementById("question").textContent = `${question}`
+
+    return distance - 1
+}
+
+
 function reset() {
     localStorage.removeItem('scores');
     window.location.href = window.location.href
 
+}
+
+function end(url, old, i) {
+    document.getElementById("countdown").textContent = ""
+    document.getElementById("score").textContent = ""
+    document.getElementById("question").style.display = `None`
+    document.getElementById("answer").style.display = 'None';
+    document.getElementById("link").textContent = `score: ${i}`
+    document.getElementById("main").href = `${old}`
+    document.getElementById("try").href = `${url}`
+    document.getElementById("main").textContent = 'main menu'
+    document.getElementById("try").textContent = 'try again'
+
+    leaderboard(i)
+}
+
+
+function changeQuestion(question, i) {
+    document.getElementById("question").textContent = `${question}`
+    document.getElementById("answer").value = ""
+    document.getElementById("score").textContent = `score: ${i}`
 }
 
 function leaderboard(score) {

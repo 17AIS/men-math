@@ -1,17 +1,18 @@
 A program like zetmac, but trying to build it for both web and android devices (by creating an apk).
 
-How the program works (or is going to work):
+A clone of zetamac
 
-1. on the main page, you would have some parameter adjusting element, in which you'd choose the operations and range that you would want the numbers to be in done
+When you give a certain parameter, it generates question within the given range for the two values.
 
-2. the webpage itself should verify if the numbers are valid, and give appropriate errors when the instructions are not followed done
+Note: the smallest value is 1, and the largest possible value is 1000, otherwise, it will send an stating which parameters are invalid.
 
-3. when successful, have a js compile questions that are in the range provided, and make 5 question for every second the user requests done
+The program also keeps track of the top 10 scores you have achieved, which only tracks the score, not the parameter + score.
 
-4. prompt them into a new screen, (potentially lagless), where they would be given questions, and you would write the answer done
+Quick rundown of how it generates questions:
 
-5. without having to press enter, if the answer in the box is correct, it should clear the box and move onto the next question done
+if first gains all the parameters and checks whether they are valid or not, and afterwards, sends the entire set into a function, the function generates a random number, which leads to the operation of the specific question, then on those individual functions, two random numbers are generated, and expressed as a string, which is then stored into an array, this is done 500 times for every second you have selected (e.g. for 120 seconds, 6000 questions are generated).
 
-6. after the questions are all over, if it is in the top 10, then it should be displayed on the scoreboard, with a timestamp (cahced, not stored anywhere)
 
-7. potential wiping of the leaderboard.
+This is then stored in the local storage, and then presented onto the game screen. 
+
+After the gameplay is over, it checks whether your score is in the top 10, and adds it in the respective place.
